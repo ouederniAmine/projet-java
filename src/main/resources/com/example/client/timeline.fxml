@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootBp" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../styles/darkStyle/timelineStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.TimelineController">
+   <top>
+      <Label alignment="CENTER" prefHeight="32.0" prefWidth="81.0" styleClass="primary-color" text="Home" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
+         <content>
+            <VBox fx:id="tweetsVbox" alignment="TOP_CENTER" prefHeight="386.0" prefWidth="598.0" spacing="10.0" styleClass="VBox" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
