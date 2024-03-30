@@ -7,7 +7,6 @@ import spark.Request;
 import spark.Response;
 
 import javax.servlet.ServletException;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

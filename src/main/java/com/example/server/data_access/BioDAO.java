@@ -41,6 +41,7 @@ public class BioDAO {
         PreparedStatement statement = connection.prepareStatement("DELETE FROM bios");
         statement.executeUpdate();
     }
+
     public void updateBio(Bio bio) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("UPDATE bios SET biography = ?, location = ?, website = ? WHERE user_id = ?");
         statement.setString(1, bio.getBiography());

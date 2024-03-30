@@ -11,6 +11,16 @@ import java.io.OutputStream;
 import java.sql.SQLException;
 
 public class HashtagHandler implements HttpHandler {
+    public static String[] toStringArray(JSONArray array) {
+        if (array == null)
+            return new String[0];
+
+        String[] arr = new String[array.length()];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = array.optString(i);
+        return arr;
+    }
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         HashtagController hashtagController = null;
@@ -38,8 +48,7 @@ public class HashtagHandler implements HttpHandler {
                     hashtag.setHashtagTweetsId(tweetId);
                     hashtagController.updateHashtag(hashtag);
                     response = "hashtag saved!";
-                }
-                catch (SQLException e) {
+                } catch (SQLException e) {
                     e.printStackTrace();
                     response = "database error";
                 }
@@ -62,14 +71,5 @@ public class HashtagHandler implements HttpHandler {
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes());
         os.close();
-    }
-    public static String[] toStringArray(JSONArray array) {
-        if(array == null)
-            return new String[0];
-
-        String[] arr = new String[array.length()];
-        for(int i = 0; i < arr.length; i++)
-            arr[i]=array.optString(i);
-        return arr;
     }
 }

@@ -33,10 +33,9 @@ import java.util.ResourceBundle;
 
 public class CreateTweetController implements Initializable {
 
+    String tweetType;
     @FXML
     private BorderPane rootBp;
-    String tweetType;
-
     @FXML
     private Button tweetBtn;
 
@@ -59,6 +58,7 @@ public class CreateTweetController implements Initializable {
     private HBox imageContainerHbox;
 
     private QuoteTweetController quoteTweetController;
+    private MainController mainController;
 
     public QuoteTweetController getQuoteTweetController() {
         return quoteTweetController;
@@ -68,14 +68,12 @@ public class CreateTweetController implements Initializable {
         this.quoteTweetController = quoteTweetController;
     }
 
-    private MainController mainController;
+    public MainController getMainController() {
+        return mainController;
+    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
-    }
-
-    public MainController getMainController() {
-        return mainController;
     }
 
     public String getTweetType() {
@@ -195,7 +193,7 @@ public class CreateTweetController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(imageIcon.getScene().getWindow());
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
-            ((ImageView)imageIcon.getParent().getChildrenUnmodifiable().get(3)).setImage(image);
+            ((ImageView) imageIcon.getParent().getChildrenUnmodifiable().get(3)).setImage(image);
         }
     }
 

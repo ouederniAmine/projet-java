@@ -6,10 +6,12 @@ import java.sql.*;
 
 public class HashtagDAO {
     private final Connection connection;
+
     public HashtagDAO() throws SQLException {
         connection = DatabaseConnectionManager.getConnection();
         createHashtagTable();
     }
+
     public void createHashtagTable() throws SQLException {
         PreparedStatement statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS hashtags (id SERIAL PRIMARY KEY, tweets_id TEXT[])");
         statement.executeUpdate();
@@ -21,12 +23,14 @@ public class HashtagDAO {
         statement.setArray(2, connection.createArrayOf("text", hashtag.getTweetsId().toArray()));
         statement.executeUpdate();
     }
+
     public void updateHashtag(Hashtag hashtag) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("UPDATE hashtags SET tweets_id = ? WHERE id = ?");
         statement.setArray(1, connection.createArrayOf("text", hashtag.getTweetsId().toArray()));
         statement.setString(2, hashtag.getHashtagId());
         statement.executeUpdate();
     }
+
     public void deleteHashtag(Hashtag hashtag) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("DELETE FROM hashtags WHERE id = ?");
         statement.setString(1, hashtag.getHashtagId());

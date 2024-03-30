@@ -1,12 +1,13 @@
 package com.example.server.data_access;
 
+import com.example.server.models.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.example.server.models.User;
-
 public class UserDAO {
     private final Connection connection;
+
     public UserDAO() throws SQLException {
         connection = DatabaseConnectionManager.getConnection();
         createUserTable();

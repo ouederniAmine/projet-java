@@ -3,7 +3,6 @@ package com.example.server.HttpHandlers;
 import com.example.server.controllers.LikeController;
 import com.example.server.utils.JWTController;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.json.JSONObject;
 import spark.Request;
 import spark.Response;
 

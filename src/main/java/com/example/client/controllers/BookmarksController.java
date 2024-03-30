@@ -14,6 +14,6 @@ public class BookmarksController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ThemeManager.applyTheme(rootBp,  url.getPath());
+        ThemeManager.applyTheme(rootBp, url.getPath());
     }
 }

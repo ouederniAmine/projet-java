@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class FollowController {
     private final FollowDAO followDAO;
     private final UserDAO userDAO;
+
     public FollowController() throws SQLException {
         followDAO = new FollowDAO();
         userDAO = new UserDAO();
@@ -23,7 +24,8 @@ public class FollowController {
 
     public void saveFollow(String follower, String followed) throws SQLException {
         Follow follow = new Follow(follower, followed);
-        if (userDAO.getUser(follower) == null || userDAO.getUser(followed) == null) throw new SQLException("User does not exist");
+        if (userDAO.getUser(follower) == null || userDAO.getUser(followed) == null)
+            throw new SQLException("User does not exist");
         followDAO.saveFollow(follow);
     }
 

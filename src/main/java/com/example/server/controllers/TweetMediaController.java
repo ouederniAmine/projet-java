@@ -11,7 +11,7 @@ public class TweetMediaController {
     private final TweetMediaDAO tweetMediaDAO;
 
     public TweetMediaController() throws SQLException {
-        tweetMediaDAO= new TweetMediaDAO();
+        tweetMediaDAO = new TweetMediaDAO();
     }
 
     public void createMedia(String tweetId, String mediaType, String mediaUrl) throws SQLException {

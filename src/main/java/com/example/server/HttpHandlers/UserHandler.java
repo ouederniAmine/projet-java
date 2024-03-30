@@ -116,9 +116,6 @@ public class UserHandler {
     }
 
 
-
-
-
     public Object handleGetBio(Request request, Response response) {
         try {
             response.body(userController.getBios());

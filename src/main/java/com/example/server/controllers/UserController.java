@@ -1,11 +1,11 @@
 package com.example.server.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.server.data_access.BioDAO;
 import com.example.server.data_access.UserDAO;
 import com.example.server.models.Bio;
 import com.example.server.models.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import java.util.Date;
 public class UserController {
     private final UserDAO userDAO;
     private final BioDAO bioDAO;
+
     public UserController() throws SQLException {
         userDAO = new UserDAO();
         bioDAO = new BioDAO();
@@ -86,7 +87,7 @@ public class UserController {
         return objectMapper.writeValueAsString(users);
     }
 
-    public boolean isUserExists (String ID) {
+    public boolean isUserExists(String ID) {
         try {
             return (userDAO.getUser(ID) != null);
         } catch (SQLException e) {
@@ -99,7 +100,7 @@ public class UserController {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(bios);
     }
-  
+
     public String getUserByIdAndPass(String id, String pass) throws SQLException, JsonProcessingException {
         User user = userDAO.getUser(id, pass);
         if (user == null) return null;

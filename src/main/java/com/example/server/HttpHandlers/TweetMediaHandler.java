@@ -1,14 +1,12 @@
 package com.example.server.HttpHandlers;
 
 import com.example.server.controllers.TweetMediaController;
-import com.example.server.controllers.UserMediaController;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import spark.Request;
 import spark.Response;
 
 import javax.servlet.ServletException;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

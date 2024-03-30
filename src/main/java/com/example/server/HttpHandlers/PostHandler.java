@@ -2,18 +2,16 @@ package com.example.server.HttpHandlers;
 
 import com.example.server.controllers.TweetController;
 import com.example.server.utils.JWTController;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import spark.Request;
 import spark.Response;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class TweetHandler {
+public class PostHandler {
     private final TweetController tweetController;
 
-    public TweetHandler() throws SQLException {
+    public PostHandler() throws SQLException {
         tweetController = new TweetController();
     }
 
@@ -119,7 +117,7 @@ public class TweetHandler {
     }
 
 
-    public Object handlePostReplyTweet (Request request, Response response) {
+    public Object handlePostReplyTweet(Request request, Response response) {
         String token = JWTController.getJwtTokenFromHeader(request.headers("Authorization"));
 
         JSONObject jsonObject = new JSONObject(request.body());
@@ -136,6 +134,7 @@ public class TweetHandler {
             return e.getMessage();
         }
     }
+
     public Object handleDeleteTweetByTweetId(Request request, Response response) {
         try {
             tweetController.deleteTweet(request.params(":tweetId"));

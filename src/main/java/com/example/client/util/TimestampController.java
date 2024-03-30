@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class TimestampController {
-    public static  String formatTimestamp(long createdAt) {
+    public static String formatTimestamp(long createdAt) {
         long timeDifference = new Date().getTime() - createdAt;
         long minutes = TimeUnit.MILLISECONDS.toMinutes(timeDifference);
         long hours = TimeUnit.MILLISECONDS.toHours(timeDifference);

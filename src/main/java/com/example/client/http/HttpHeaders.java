@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class HttpHeaders {
-    private Map<String, String> headers = new HashMap<>();
+    private final Map<String, String> headers = new HashMap<>();
 
     public void set(String key, String value) {
         headers.put(key, value);

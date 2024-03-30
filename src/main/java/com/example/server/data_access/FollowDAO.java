@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class FollowDAO {
 
     private final Connection connection;
+
     public FollowDAO() throws SQLException {
         connection = DatabaseConnectionManager.getConnection();
         createFollowTable();
@@ -66,7 +67,9 @@ public class FollowDAO {
         }
         return follows;
     }
-    public ArrayList<Follow> getFollowings(String userId) throws SQLException { PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM follows WHERE follower = ?");
+
+    public ArrayList<Follow> getFollowings(String userId) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM follows WHERE follower = ?");
         preparedStatement.setString(1, userId);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Follow> follows = new ArrayList<>();

@@ -1,6 +1,7 @@
 package com.example.server.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Bio {
 
     @JsonProperty("userId")

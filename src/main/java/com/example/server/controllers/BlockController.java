@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class BlockController {
     private final BlockDAO blockDAO;
     private final UserDAO userDAO;
+
     public BlockController() throws SQLException {
         blockDAO = new BlockDAO();
         userDAO = new UserDAO();
@@ -23,7 +24,8 @@ public class BlockController {
 
     public void saveBlock(String blocker, String blocked) throws SQLException {
         Block block = new Block(blocker, blocked);
-        if (userDAO.getUser(blocker) == null || userDAO.getUser(blocked) == null) throw new SQLException("User does not exist");
+        if (userDAO.getUser(blocker) == null || userDAO.getUser(blocked) == null)
+            throw new SQLException("User does not exist");
         blockDAO.saveBlock(block);
     }
 

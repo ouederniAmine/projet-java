@@ -58,12 +58,12 @@ public class FollowController implements Initializable {
     private Label usernameLbl;
     private MainController mainController;
 
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
     public MainController getMainController() {
         return mainController;
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
     public String getUsernameLbl() {

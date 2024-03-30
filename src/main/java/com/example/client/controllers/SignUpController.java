@@ -1,8 +1,7 @@
 package com.example.client.controllers;
 
+import com.example.server.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-
-import com.example.server.models.User;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -115,7 +112,7 @@ public class SignUpController implements Initializable {
             user.setEmail(emailTf.getText());
             user.setPhoneNumber(phoneNumberTf.getText());
             user.setPassword(passwordTf.getText());
-            user.setCountry((String) countryCmb.getValue());
+            user.setCountry(countryCmb.getValue());
             user.setBirthday(Date.from(birthdayDp.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
             usernameTf.setText("");

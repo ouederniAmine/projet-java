@@ -2,12 +2,12 @@ package com.example.server.HttpHandlers;
 
 
 import com.example.server.controllers.FollowController;
+import com.example.server.utils.JWTController;
 import spark.Request;
 import spark.Response;
 
 import java.sql.SQLException;
 
-import com.example.server.utils.JWTController;
 public class FollowHandler {
     private final FollowController followController;
 

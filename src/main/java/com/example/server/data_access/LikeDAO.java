@@ -66,7 +66,7 @@ public class LikeDAO {
         ArrayList<Like> likes = new ArrayList<>();
         var resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            likes.add(new Like(resultSet.getString("like_id") ,resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
+            likes.add(new Like(resultSet.getString("like_id"), resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
         }
 
         return likes;
@@ -78,7 +78,7 @@ public class LikeDAO {
         ArrayList<Like> likes = new ArrayList<>();
         var resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            likes.add(new Like(resultSet.getString("like_id") ,resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
+            likes.add(new Like(resultSet.getString("like_id"), resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
         }
 
         return likes;
@@ -89,7 +89,7 @@ public class LikeDAO {
         ArrayList<Like> likes = new ArrayList<>();
         var resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            likes.add(new Like(resultSet.getString("like_id") ,resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
+            likes.add(new Like(resultSet.getString("like_id"), resultSet.getString("user_id"), resultSet.getString("tweet_id"), resultSet.getTimestamp("created_at")));
         }
 
         return likes;

@@ -3,7 +3,6 @@ package com.example.server.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
-import java.util.ArrayList;
 
 public class Tweet {
     @JsonProperty("tweetId")

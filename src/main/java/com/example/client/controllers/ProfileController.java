@@ -1,6 +1,8 @@
 package com.example.client.controllers;
 
 import com.example.client.http.HttpController;
+import com.example.client.http.HttpHeaders;
+import com.example.client.http.HttpMethod;
 import com.example.client.http.HttpResponse;
 import com.example.client.util.JWTController;
 import com.example.client.util.ThemeManager;
@@ -28,8 +30,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.example.client.http.*;
 
 public class ProfileController implements Initializable {
 
@@ -91,14 +91,13 @@ public class ProfileController implements Initializable {
 
     private MainController mainController;
 
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
     public MainController getMainController() {
         return mainController;
     }
 
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
 
     public String getUsernameLbl() {
         return usernameLbl.getText().substring(1);
@@ -367,7 +366,7 @@ public class ProfileController implements Initializable {
         }
 
         int followerCount = 0;
-        for (JsonNode followerJson: followers) {
+        for (JsonNode followerJson : followers) {
             followerCount++;
         }
 
@@ -388,7 +387,7 @@ public class ProfileController implements Initializable {
         }
 
         int followingCount = 0;
-        for (JsonNode followerJson: followings) {
+        for (JsonNode followerJson : followings) {
             followingCount++;
         }
         followingCountLbl.setText(Integer.toString(followingCount));

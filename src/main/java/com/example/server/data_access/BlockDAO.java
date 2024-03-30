@@ -53,7 +53,8 @@ public class BlockDAO {
         return blocks;
     }
 
-    public ArrayList<Block> getBlockers(String userId) throws SQLException { PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM blocks WHERE blocked = ?");
+    public ArrayList<Block> getBlockers(String userId) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM blocks WHERE blocked = ?");
         preparedStatement.setString(1, userId);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Block> blocks = new ArrayList<>();
@@ -65,7 +66,9 @@ public class BlockDAO {
         }
         return blocks;
     }
-    public ArrayList<Block> getBlockings(String userId) throws SQLException { PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM blocks WHERE blocker = ?");
+
+    public ArrayList<Block> getBlockings(String userId) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM blocks WHERE blocker = ?");
         preparedStatement.setString(1, userId);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Block> blocks = new ArrayList<>();

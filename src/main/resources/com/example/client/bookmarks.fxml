@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import java.lang.String?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane fx:id="rootBp" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/darkStyle/bookmarksStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.BookmarksController">
+<BorderPane fx:id="rootBp" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/darkStyle/bookmarksStyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.BookmarksController">
    <top>
       <BorderPane prefHeight="37.0" prefWidth="600.0" styleClass="header" BorderPane.alignment="CENTER">
          <right>
@@ -34,7 +32,7 @@
                <children>
                   <ImageView fitHeight="179.0" fitWidth="332.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/book_in_bird_cage.png" />
+                        <Image url="@../../../images/linkedIn.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="17.0" prefWidth="243.0" styleClass="primary-color" text="Save tweets for later" textFill="WHITE">
@@ -42,7 +40,7 @@
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="46.0" prefWidth="247.0" styleClass="secondary-color" text="Don't let the good ones fly away! Bookmark Tweets to easily find them again in the future." textFill="WHITE" wrapText="true" />
+                  <Label prefHeight="46.0" prefWidth="247.0" styleClass="secondary-color" text="Book mark posts " textFill="WHITE" wrapText="true" />
                </children>
             </VBox>
          </center>

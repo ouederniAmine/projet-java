@@ -3,6 +3,7 @@ package com.example.server.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hashtag {
     @JsonProperty("HashtagId")
@@ -25,11 +26,11 @@ public class Hashtag {
     public void setHashtagTweetsId(ArrayList<String> tweetsId) {
         HashtagTweetsId = tweetsId;
     }
+
     public void setHashtagTweetsId(String[] tweetsId) {
-        for (String tweetid : tweetsId) {
-            this.HashtagTweetsId.add(tweetid);
-        }
+        Collections.addAll(this.HashtagTweetsId, tweetsId);
     }
+
     public void setHashtagTweetsId(String tweetsId) {
         this.HashtagTweetsId.add(tweetsId);
     }

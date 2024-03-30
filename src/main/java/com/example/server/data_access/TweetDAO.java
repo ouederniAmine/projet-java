@@ -6,12 +6,13 @@ import com.example.server.models.Retweet;
 import com.example.server.models.Tweet;
 
 import java.sql.*;
-import java.util.Date;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TweetDAO {
 
     private final Connection connection;
+
     public TweetDAO() throws SQLException {
         connection = DatabaseConnectionManager.getConnection();
         createTweetTable();
@@ -244,6 +245,7 @@ public class TweetDAO {
         }
         return replyTweets;
     }
+
     public ArrayList<ReplyTweet> getRepliesByParentTweetId(String parentTweetId) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM tweets WHERE parent_tweet_id = ?");
         statement.setString(1, parentTweetId);

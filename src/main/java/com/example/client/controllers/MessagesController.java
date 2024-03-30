@@ -11,8 +11,9 @@ import java.util.ResourceBundle;
 public class MessagesController implements Initializable {
     @FXML
     private BorderPane rootBp;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ThemeManager.applyTheme(rootBp,  url.getPath());
+        ThemeManager.applyTheme(rootBp, url.getPath());
     }
 }

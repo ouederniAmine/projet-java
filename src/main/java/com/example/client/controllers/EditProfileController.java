@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.gleidson28.GNAvatarView;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,9 +21,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -31,12 +35,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
-
-import javafx.embed.swing.SwingFXUtils;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class EditProfileController implements Initializable {
     @FXML
@@ -71,6 +69,7 @@ public class EditProfileController implements Initializable {
 
     @FXML
     private TextField websiteTf;
+
     @FXML
     void onAvatarClicked(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -97,7 +96,7 @@ public class EditProfileController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(headerImagePane.getScene().getWindow());
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
-            headerImagePane.setStyle("-fx-background-image: url('" + selectedFile.toURI().toString() + "'); -fx-background-size: cover;");
+            headerImagePane.setStyle("-fx-background-image: url('" + selectedFile.toURI() + "'); -fx-background-size: cover;");
         }
     }
 
@@ -134,18 +133,20 @@ public class EditProfileController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        if (!(response.getStatusCode() >= 200 && response.getStatusCode() < 300)) throw new RuntimeException("Error saving bio");
+        if (!(response.getStatusCode() >= 200 && response.getStatusCode() < 300))
+            throw new RuntimeException("Error saving bio");
 
         // -------------------------- save user info ---------------------------------
 
         HttpResponse userResponse = null;
         try {
-            userResponse = HttpController.sendRequest("http://localhost:8080/api/users/" +  JWTController.getSubjectFromJwt(JWTController.getJwtKey()), HttpMethod.GET, null, null);
+            userResponse = HttpController.sendRequest("http://localhost:8080/api/users/" + JWTController.getSubjectFromJwt(JWTController.getJwtKey()), HttpMethod.GET, null, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        if (!(userResponse.getStatusCode() >= 200 && userResponse.getStatusCode() < 300)) throw new RuntimeException("Error getting user data");
+        if (!(userResponse.getStatusCode() >= 200 && userResponse.getStatusCode() < 300))
+            throw new RuntimeException("Error getting user data");
 
         JsonNode userJson = null;
         try {
@@ -182,7 +183,7 @@ public class EditProfileController implements Initializable {
         }
 
         Image profileImage = avatar.getImage();
-        Image headerImage = (Image) headerImagePane.getBackground().getImages().get(0).getImage();
+        Image headerImage = headerImagePane.getBackground().getImages().get(0).getImage();
 
         byte[] profileImageBytes = null;
         byte[] headerImageBytes = null;
@@ -249,7 +250,8 @@ public class EditProfileController implements Initializable {
         JsonNode bioJson = null;
         JsonNode userJson = null;
 
-        if (bioResponse.getStatusCode() != 200 || userResponse.getStatusCode() != 200) throw new RuntimeException("Error getting user data");
+        if (bioResponse.getStatusCode() != 200 || userResponse.getStatusCode() != 200)
+            throw new RuntimeException("Error getting user data");
 
         if (!bioResponse.getBody().equals("{}")) {
             try {
@@ -307,6 +309,7 @@ public class EditProfileController implements Initializable {
         }
 
     }
+
     public byte[] convertImageToByteArray(Image image) throws IOException {
         BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

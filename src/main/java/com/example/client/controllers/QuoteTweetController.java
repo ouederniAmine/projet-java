@@ -51,13 +51,14 @@ public class QuoteTweetController implements Initializable {
 
     private MainController mainController;
 
+    public MainController getMainController() {
+        return mainController;
+    }
+
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    public MainController getMainController() {
-        return mainController;
-    }
     public String getTweetId() {
         return tweetId;
     }

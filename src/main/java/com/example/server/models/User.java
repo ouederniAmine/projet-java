@@ -1,7 +1,8 @@
 package com.example.server.models;
 
-import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
 
 public class User {
     @JsonProperty("id")
@@ -9,7 +10,7 @@ public class User {
 
     @JsonProperty("firstName")
     private String firstName;
-        
+
     @JsonProperty("lastName")
     private String lastName;
 

@@ -97,6 +97,8 @@ public class TweetController implements Initializable {
 
     @FXML
     private Label timestampLbl;
+    private MainController mainController;
+    private TimelineController timelineController;
 
     public String getTweetId() {
         return tweetId;
@@ -142,6 +144,10 @@ public class TweetController implements Initializable {
         return avatarView.getImage();
     }
 
+    public void setAvatarView(Image image) {
+        this.avatarView.setImage(image);
+    }
+
     public double getAvatarX() {
         return avatarView.getLayoutX();
     }
@@ -150,14 +156,11 @@ public class TweetController implements Initializable {
         return avatarView.getLayoutY();
     }
 
-    public void setAvatarView(Image image) {
-        this.avatarView.setImage(image);
-    }
-
     public String getLikeBtn() {
         return likeBtn.getText();
     }
-//
+
+    //
     public void setLikeBtn(String text) {
         this.likeBtn.setText(text);
     }
@@ -202,17 +205,13 @@ public class TweetController implements Initializable {
         this.retweetedNameLbl.getText();
     }
 
-    private MainController mainController;
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
     public MainController getMainController() {
         return mainController;
     }
 
-    private TimelineController timelineController;
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
 
     public TimelineController getTimelineController() {
         return timelineController;

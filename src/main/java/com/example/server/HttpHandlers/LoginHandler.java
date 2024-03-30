@@ -15,6 +15,7 @@ public class LoginHandler {
     public LoginHandler() throws SQLException {
         userController = new UserController();
     }
+
     public Object handlePostLogin(Request request, Response response) throws SQLException {
         JSONObject jsonObject = new JSONObject(request.body());
         String userId = jsonObject.getString("userId");

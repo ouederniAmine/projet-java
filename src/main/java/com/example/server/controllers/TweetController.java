@@ -1,19 +1,19 @@
 package com.example.server.controllers;
 
-import java.sql.SQLException;
-
 import com.example.server.data_access.FollowDAO;
+import com.example.server.data_access.TweetDAO;
 import com.example.server.models.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.server.data_access.TweetDAO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TweetController {
     private final TweetDAO tweetDAO;
 
     private final FollowDAO followDAO;
+
     public TweetController() throws SQLException {
         tweetDAO = new TweetDAO();
         followDAO = new FollowDAO();
@@ -96,24 +96,25 @@ public class TweetController {
     public void deleteTweets() throws SQLException {
         tweetDAO.deleteTweets();
     }
+
     public void deleteTweet(String id) throws SQLException {
         tweetDAO.deleteTweet(id);
     }
 
     public String getTweets() throws SQLException, JsonProcessingException {
-        ArrayList<Tweet> tweets =  tweetDAO.getTweets();
+        ArrayList<Tweet> tweets = tweetDAO.getTweets();
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(tweets);
     }
 
     public String getTweetsByOwnerId(String ownerId) throws SQLException, JsonProcessingException {
-        ArrayList<Tweet> tweets =  tweetDAO.getTweets(ownerId);
+        ArrayList<Tweet> tweets = tweetDAO.getTweets(ownerId);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(tweets);
     }
 
     public String getRetweetsByOwnerId(String ownerId) throws SQLException, JsonProcessingException {
-        ArrayList<Retweet> retweets =  tweetDAO.getRetweets(ownerId);
+        ArrayList<Retweet> retweets = tweetDAO.getRetweets(ownerId);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(retweets);
     }
@@ -125,22 +126,23 @@ public class TweetController {
     }
 
     public String getRepliesByParentTweetId(String parentTweetId) throws SQLException, JsonProcessingException {
-        ArrayList<ReplyTweet> replies =  tweetDAO.getRepliesByParentTweetId(parentTweetId);
+        ArrayList<ReplyTweet> replies = tweetDAO.getRepliesByParentTweetId(parentTweetId);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(replies);
     }
 
     public String getRetweetsByRetweetId(String retweetId) throws SQLException, JsonProcessingException {
-        ArrayList<Retweet> retweets =  tweetDAO.getRetweetsByRetweetId(retweetId);
+        ArrayList<Retweet> retweets = tweetDAO.getRetweetsByRetweetId(retweetId);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(retweets);
     }
 
     public String getQuotesByQuoteTweetId(String quoteTweetId) throws JsonProcessingException, SQLException {
-        ArrayList<QuoteTweet> Quotes =  tweetDAO.getQuotesByQuoteTweetId(quoteTweetId);
+        ArrayList<QuoteTweet> Quotes = tweetDAO.getQuotesByQuoteTweetId(quoteTweetId);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(Quotes);
     }
+
     public String getTimeline(String username) throws SQLException, JsonProcessingException {
         // todo : add trends tweet to timeline tweets
         // todo : remove Blocked users tweets from timeline tweets:w
