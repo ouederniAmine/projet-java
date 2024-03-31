@@ -28,7 +28,7 @@ public class LinkedinApplication extends Application {
             stage.setMaximized(true);
 //            stage.setFullScreen(true);
             stage.setScene(scene);
-            stage.setTitle("Twitter");
+            stage.setTitle("Linkedin Application");
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
